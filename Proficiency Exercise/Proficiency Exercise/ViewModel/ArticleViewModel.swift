@@ -9,7 +9,14 @@
 import UIKit
 
 class ArticleViewModel: NSObject {
-  let title: String = ""
-  let desc: String = ""
-  let imageHref: String = ""
+  let title: String
+  let desc: String
+  let imageHref: String?
+  
+  init(article: Article) {
+    self.title = article.title ?? ""
+    self.desc = article.desc ?? ""
+    self.imageHref = article.imageHref
+    super.init()
+  }
 }

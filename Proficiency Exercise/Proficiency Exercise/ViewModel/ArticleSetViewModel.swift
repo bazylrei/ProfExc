@@ -46,9 +46,24 @@ class ArticleSetViewModel: NSObject {
     self.articlesAPI = api
   }
   
-//  articlesAPI.downloadArticles() { articles in
-//  articles.forEach { article in
-//  print(article.title)
-//  }
-//  }
+  func fetch() {
+    articlesAPI.downloadArticles() {[weak self] articles in
+      var viewModels = [ArticleViewModel]()
+      articles.forEach { article in
+        guard let vm = self?.createArticleViewModel(article: article) else { return }
+        viewModels.append(vm)
+      }
+      self?.articleViewModels = viewModels
+    }
+  }
+  
+  func getArticleViewModel(at indexPath: IndexPath) -> ArticleViewModel {
+    return articleViewModels[indexPath.row]
+  }
+  
+  func createArticleViewModel(article: Article) -> ArticleViewModel {
+    let viewModel = ArticleViewModel(article: article)
+    return viewModel
+  }
+  
 }
