@@ -11,13 +11,14 @@ import SwiftyJSON
 
 class JSONParser: NSObject {
 
-  func parseArticleData(json: JSON) {
-    guard let articles = json["rows"].array else { return }
+  func parseArticleData(json: JSON) -> [Article] {
+    guard let articles = json["rows"].array else { return [] }
     var articleArray = [Article]()
     articles.forEach { json in
       let article = Article(json: json)
       articleArray.append(article)
     }
+    return articleArray
   }
   
 }
