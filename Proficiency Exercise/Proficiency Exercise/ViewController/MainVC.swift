@@ -10,6 +10,8 @@ import UIKit
 
 class MainVC: UIViewController {
   
+  @IBOutlet weak var collectionView: UICollectionView!
+  
   let articlesAPI = ArticlesAPI()
   
   override func viewDidLoad() {
