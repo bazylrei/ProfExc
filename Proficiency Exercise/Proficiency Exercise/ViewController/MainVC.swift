@@ -10,8 +10,14 @@ import UIKit
 
 class MainVC: UIViewController {
   
+  let articlesAPI = ArticlesAPI()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    HTTPClient().startConnection()
+    articlesAPI.downloadArticles() { articles in
+      articles.forEach { article in
+        print(article.title)
+      }
+    }
   }
 }

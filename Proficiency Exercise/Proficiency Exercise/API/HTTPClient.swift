@@ -9,9 +9,13 @@
 import UIKit
 import SwiftyJSON
 
-class HTTPClient: NSObject {
+protocol ArticleLoaderType {
+  func fetchArticles(completion: @escaping ((JSON?) -> Void))
+}
+
+class HTTPClient: NSObject, ArticleLoaderType {
   
-  func startConnection() {
+  func fetchArticles(completion: @escaping ((JSON?) -> Void)) {
     let urlPath: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"//"https://api.myjson.com/bins/1e3977"
     guard let url = URL(string: urlPath) else { return }
     var request = URLRequest(url: url)
@@ -25,7 +29,7 @@ class HTTPClient: NSObject {
         let str = String.init(data: data, encoding: String.Encoding.isoLatin1)
         if let utf8Data = str?.data(using: .utf8) {
           let json = JSON(data: utf8Data)
-          JSONParser().parseArticleData(json: json)
+          completion(json)
         }
       }
     }

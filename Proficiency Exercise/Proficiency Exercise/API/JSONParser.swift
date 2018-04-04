@@ -9,7 +9,12 @@
 import UIKit
 import SwiftyJSON
 
-class JSONParser: NSObject {
+
+protocol ParserType {
+  func parseArticleData(json: JSON) -> [Article]
+}
+
+class JSONParser: NSObject, ParserType {
 
   func parseArticleData(json: JSON) -> [Article] {
     guard let articles = json["rows"].array else { return [] }
