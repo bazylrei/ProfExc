@@ -15,9 +15,9 @@ class Article: NSObject {
   let imageHref: String?
   
   init(json: JSON) {
-    self.title = ""
-    self.desc = ""
-    self.imageHref = ""
+    self.title = json["title"].string
+    self.desc = json["description"].string
+    self.imageHref = json["imageHref"].string
     super.init()
   }
 }

@@ -17,7 +17,6 @@ class JSONParser: NSObject {
     articles.forEach { json in
       let article = Article(json: json)
       articleArray.append(article)
-      print(article.title)
     }
   }
   
