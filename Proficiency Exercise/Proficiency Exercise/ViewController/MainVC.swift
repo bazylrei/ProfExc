@@ -12,14 +12,9 @@ class MainVC: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
-  let articlesAPI = ArticlesAPI()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    articlesAPI.downloadArticles() { articles in
-      articles.forEach { article in
-        print(article.title)
-      }
-    }
   }
 }

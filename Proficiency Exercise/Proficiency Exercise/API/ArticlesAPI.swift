@@ -8,7 +8,13 @@
 
 import UIKit
 
-class ArticlesAPI: NSObject {
+protocol ArticlesAPIType {
+  var parser: ParserType { get }
+  var networkClient: ArticleLoaderType { get }
+  func downloadArticles(completion: @escaping (([Article]) -> Void))
+}
+
+class ArticlesAPI: NSObject, ArticlesAPIType {
   
   let parser: ParserType = JSONParser()
   let networkClient: ArticleLoaderType = HTTPClient()
