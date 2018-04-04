@@ -23,9 +23,10 @@ class HTTPClient: NSObject {
       } else {
         guard let data = data else { return }
         let str = String.init(data: data, encoding: String.Encoding.isoLatin1)
-        let json = JSON(str)
-        print(json)
-        
+        if let utf8Data = str?.data(using: .utf8) {
+          let json = JSON(data: utf8Data)
+          JSONParser().parseArticleData(json: json)
+        }
       }
     }
     task.resume()
