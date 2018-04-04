@@ -44,14 +44,24 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-1o-CaI">
+                                                    <rect key="frame" x="2" y="2" width="134" height="88"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.84686821459999995" green="0.81960784310000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="XN3-fZ-b7b" firstAttribute="width" secondItem="8Do-t8-qQw" secondAttribute="width" id="1Ha-g0-54V"/>
+                                            <constraint firstItem="IBR-1o-CaI" firstAttribute="top" secondItem="8Do-t8-qQw" secondAttribute="top" constant="2" id="GCS-bz-Tqj"/>
+                                            <constraint firstAttribute="trailing" secondItem="IBR-1o-CaI" secondAttribute="trailing" constant="2" id="K8u-SH-m4k"/>
                                             <constraint firstAttribute="bottom" secondItem="XN3-fZ-b7b" secondAttribute="bottom" id="Mhr-hi-bAa"/>
+                                            <constraint firstItem="XN3-fZ-b7b" firstAttribute="top" secondItem="IBR-1o-CaI" secondAttribute="bottom" id="NQn-zn-vhk"/>
+                                            <constraint firstItem="IBR-1o-CaI" firstAttribute="centerX" secondItem="8Do-t8-qQw" secondAttribute="centerX" id="jKR-77-V13"/>
+                                            <constraint firstItem="IBR-1o-CaI" firstAttribute="leading" secondItem="8Do-t8-qQw" secondAttribute="leading" constant="2" id="llh-rA-Pdb"/>
                                             <constraint firstItem="XN3-fZ-b7b" firstAttribute="centerX" secondItem="8Do-t8-qQw" secondAttribute="centerX" id="uMo-ZE-ji5"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="image" destination="IBR-1o-CaI" id="dIy-98-npl"/>
                                             <outlet property="titleLabel" destination="XN3-fZ-b7b" id="Opg-n8-qJ0"/>
                                         </connections>
                                     </collectionViewCell>

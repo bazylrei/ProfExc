@@ -54,7 +54,8 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArticleCell", for: indexPath) as? ArticleCollectionViewCell else {
       return UICollectionViewCell()
     }
-    cell.titleLabel.text = viewModel.getArticleViewModel(at: indexPath).title
+    let articleViewModel = viewModel.getArticleViewModel(at: indexPath)
+    cell.setup(with: articleViewModel)
     return cell
   }
   

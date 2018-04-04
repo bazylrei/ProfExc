@@ -22,6 +22,7 @@
 		21F70C52207561EE00AEDACA /* ArticleSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F70C51207561EE00AEDACA /* ArticleSetViewModel.swift */; };
 		21F70C542075627200AEDACA /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F70C532075627200AEDACA /* ArticleViewModel.swift */; };
 		21F70C5620756C1300AEDACA /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F70C5520756C1300AEDACA /* ArticleCollectionViewCell.swift */; };
+		21F70C5920757C7A00AEDACA /* UIImageView+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F70C5820757C7A00AEDACA /* UIImageView+Async.swift */; };
 		54E57E9D59D18BBF8FD4E147 /* Pods_Proficiency_Exercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D179437710AD4829CAC9C798 /* Pods_Proficiency_Exercise.framework */; };
 		71F70E06D5763BFE59D4157A /* Pods_Proficiency_ExerciseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A666E854D82E3343A154B64C /* Pods_Proficiency_ExerciseUITests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		21F70C51207561EE00AEDACA /* ArticleSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSetViewModel.swift; sourceTree = "<group>"; };
 		21F70C532075627200AEDACA /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		21F70C5520756C1300AEDACA /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		21F70C5820757C7A00AEDACA /* UIImageView+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Async.swift"; sourceTree = "<group>"; };
 		2BFF5EFD336AFED4190519C0 /* Pods-Proficiency ExerciseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Proficiency ExerciseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Proficiency ExerciseTests/Pods-Proficiency ExerciseTests.release.xcconfig"; sourceTree = "<group>"; };
 		42A39D7034E1E9E12F59D0C6 /* Pods-Proficiency Exercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Proficiency Exercise.release.xcconfig"; path = "Pods/Target Support Files/Pods-Proficiency Exercise/Pods-Proficiency Exercise.release.xcconfig"; sourceTree = "<group>"; };
 		57ACDD31E163322286889819 /* Pods-Proficiency ExerciseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Proficiency ExerciseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Proficiency ExerciseTests/Pods-Proficiency ExerciseTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		21D2850420752900000F7A17 /* Proficiency Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				21F70C5720757C5B00AEDACA /* Extensions */,
 				21D2853920752B5B000F7A17 /* API */,
 				21D2853820752B4F000F7A17 /* ViewModel */,
 				21D2853720752B4A000F7A17 /* View */,
@@ -209,6 +212,14 @@
 				21D285412075322A000F7A17 /* MainVC.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		21F70C5720757C5B00AEDACA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				21F70C5820757C7A00AEDACA /* UIImageView+Async.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		50EAC2EF3CDD4F53A88BEB1A /* Frameworks */ = {
@@ -530,6 +541,7 @@
 				21F70C47207546A900AEDACA /* Article.swift in Sources */,
 				21F70C542075627200AEDACA /* ArticleViewModel.swift in Sources */,
 				21D2853D20752D26000F7A17 /* HTTPClient.swift in Sources */,
+				21F70C5920757C7A00AEDACA /* UIImageView+Async.swift in Sources */,
 				21F70C5620756C1300AEDACA /* ArticleCollectionViewCell.swift in Sources */,
 				21F70C52207561EE00AEDACA /* ArticleSetViewModel.swift in Sources */,
 				21F70C4E2075508B00AEDACA /* JSONParser.swift in Sources */,
