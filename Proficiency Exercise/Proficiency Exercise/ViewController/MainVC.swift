@@ -20,10 +20,13 @@ class MainVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setupViewModel()
     
     collectionView.delegate = self
     collectionView.dataSource = self
-    
+  }
+  
+  func setupViewModel() {
     viewModel.presentErrorAlertClosure = {[weak self] error in
       DispatchQueue.main.async {
         let alert = UIAlertController(title: "Alert", message: error, preferredStyle: .alert)
@@ -50,7 +53,6 @@ class MainVC: UIViewController {
       }
     }
   }
-  
 }
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -78,13 +80,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     var height: CGFloat = 40.0
     if let img = viewModel.getArticleViewModel(at: indexPath).image {
-      let screenWidth = UIScreen.main.bounds.width
-      let screenHeight = UIScreen.main.bounds.height
-      if screenWidth < img.size.width {
-        height += (img.size.height / img.size.width) * screenWidth
-      } else {
-        height += img.size.height
-      }
+      height += img.getHeightFittingScreen()
     }
     let size = CGSize(width: self.collectionView.frame.width, height: height)
     return size
