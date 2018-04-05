@@ -11,6 +11,7 @@ import UIKit
 class MainVC: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
+
   
   lazy var viewModel: ArticleSetViewModel = {
     return ArticleSetViewModel(api: ArticlesAPI())
@@ -57,14 +58,25 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     let articleViewModel = viewModel.getArticleViewModel(at: indexPath)
     cell.setup(with: articleViewModel) { [weak self] in
-      self?.collectionView.collectionViewLayout.invalidateLayout()
+      DispatchQueue.main.async {
+        self?.collectionView.collectionViewLayout.invalidateLayout()
+      }
     }
     return cell
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let img = viewModel.getArticleViewModel(at: indexPath).image
-    let size = CGSize(width: self.collectionView.frame.width, height: img.size.height + 20)
+    var height: CGFloat = 20.0
+    if let img = viewModel.getArticleViewModel(at: indexPath).image {
+      let screenWidth = UIScreen.main.bounds.width
+      let screenHeight = UIScreen.main.bounds.height
+      if screenWidth < img.size.width {
+        height += (img.size.height / img.size.width) * screenWidth
+      } else {
+        height += img.size.height
+      }
+    }
+    let size = CGSize(width: self.collectionView.frame.width, height: height)
     return size
   }
   

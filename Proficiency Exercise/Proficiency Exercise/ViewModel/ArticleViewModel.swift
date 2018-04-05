@@ -12,10 +12,10 @@ class ArticleViewModel: NSObject {
   let title: String
   let desc: String
   let imageHref: String?
-  var image = UIImage()
+  var image: UIImage? = nil
   
   init(article: Article) {
-    self.title = article.title ?? ""
+    self.title = article.title ?? "Title not found"
     self.desc = article.desc ?? ""
     self.imageHref = article.imageHref
     super.init()

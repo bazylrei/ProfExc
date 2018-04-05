@@ -15,9 +15,20 @@ class ArticleCollectionViewCell: UICollectionViewCell {
   
   func setup(with viewModel: ArticleViewModel, completion: @escaping (()->())) {
     titleLabel.text = viewModel.title
+    if viewModel.image != nil {
+      imageView.image = #imageLiteral(resourceName: "Default")
+      completion()
+    }
+    
     if let urlString = viewModel.imageHref {
     imageView.loadAsyncImage(urlString: urlString) { [weak self] loadedImage in
-      viewModel.image = loadedImage
+      if loadedImage != nil {
+        viewModel.image = loadedImage!
+      } else {
+        DispatchQueue.main.async {
+          self?.imageView.image = viewModel.image
+        }
+      }
       completion()
     }
     }
