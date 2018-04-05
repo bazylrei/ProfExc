@@ -41,6 +41,16 @@ class MainVC: UIViewController {
     }
     viewModel.fetch()
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "DetailsSegue" {
+      if let vc = segue.destination as? ArticleDetailsVC,
+        let viewModel = sender as? ArticleViewModel {
+        vc.viewModel = viewModel
+      }
+    }
+  }
+  
 }
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -78,6 +88,12 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     let size = CGSize(width: self.collectionView.frame.width, height: height)
     return size
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    collectionView.deselectItem(at: indexPath, animated: true)
+    let articleViewModel = viewModel.getArticleViewModel(at: indexPath)
+    performSegue(withIdentifier: "DetailsSegue", sender: articleViewModel)
   }
   
 }

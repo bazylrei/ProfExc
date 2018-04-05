@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2079880338202CDDA6FB5A9C /* Pods_Proficiency_ExerciseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEB389BAF29FD565CB2FC16 /* Pods_Proficiency_ExerciseTests.framework */; };
+		213B3E132076D11700334616 /* ArticleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B3E122076D11700334616 /* ArticleDetailsVC.swift */; };
 		21D2850620752900000F7A17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2850520752900000F7A17 /* AppDelegate.swift */; };
 		21D2850B20752900000F7A17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D2850920752900000F7A17 /* Main.storyboard */; };
 		21D2851020752900000F7A17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D2850F20752900000F7A17 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		213B3E122076D11700334616 /* ArticleDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsVC.swift; sourceTree = "<group>"; };
 		21D2850220752900000F7A17 /* Proficiency Exercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Proficiency Exercise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D2850520752900000F7A17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21D2850A20752900000F7A17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				21D285412075322A000F7A17 /* MainVC.swift */,
+				213B3E122076D11700334616 /* ArticleDetailsVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				21F70C4E2075508B00AEDACA /* JSONParser.swift in Sources */,
 				21D285422075322A000F7A17 /* MainVC.swift in Sources */,
 				21D2850620752900000F7A17 /* AppDelegate.swift in Sources */,
+				213B3E132076D11700334616 /* ArticleDetailsVC.swift in Sources */,
 				21F70C50207559C800AEDACA /* ArticlesAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
