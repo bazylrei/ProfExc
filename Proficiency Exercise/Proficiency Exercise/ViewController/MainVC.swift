@@ -12,6 +12,7 @@ class MainVC: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
 
+  let refreshController = UIRefreshControl()
   
   lazy var viewModel: ArticleSetViewModel = {
     return ArticleSetViewModel(api: ArticlesAPI())
@@ -21,9 +22,24 @@ class MainVC: UIViewController {
     super.viewDidLoad()
     
     setupViewModel()
-    
+    setupCollectionView()
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "DetailsSegue" {
+      if let vc = segue.destination as? ArticleDetailsVC,
+        let viewModel = sender as? ArticleViewModel {
+        vc.viewModel = viewModel
+      }
+    }
+  }
+  
+  func setupCollectionView() {
     collectionView.delegate = self
     collectionView.dataSource = self
+    refreshController.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    collectionView.addSubview(refreshController)
+    
   }
   
   func setupViewModel() {
@@ -40,18 +56,15 @@ class MainVC: UIViewController {
     viewModel.reloadCollectionViewClosure = {
       DispatchQueue.main.async {
         self.collectionView.reloadData()
+        self.refreshController.endRefreshing()
       }
     }
-    viewModel.fetch()
+    refreshData()
   }
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "DetailsSegue" {
-      if let vc = segue.destination as? ArticleDetailsVC,
-        let viewModel = sender as? ArticleViewModel {
-        vc.viewModel = viewModel
-      }
-    }
+  @objc func refreshData() {
+    refreshController.beginRefreshing()
+    viewModel.fetch()
   }
 }
 
