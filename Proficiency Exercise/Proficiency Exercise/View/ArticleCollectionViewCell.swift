@@ -10,10 +10,12 @@ import UIKit
 
 class ArticleCollectionViewCell: UICollectionViewCell {
     
+  @IBOutlet weak var view: UIView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
   
   func setup(with viewModel: ArticleViewModel, completion: @escaping (()->())) {
+    view.layer.cornerRadius = 8.0
     titleLabel.text = viewModel.title
     if viewModel.image != nil {
       imageView.image = #imageLiteral(resourceName: "Default")

@@ -38,34 +38,46 @@
                                             <rect key="frame" x="0.0" y="0.0" width="138" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XN3-fZ-b7b">
-                                                    <rect key="frame" x="0.0" y="91" width="138" height="20"/>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvN-Nj-XKM">
+                                                    <rect key="frame" x="10" y="10" width="118" height="91"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-1o-CaI">
+                                                            <rect key="frame" x="0.0" y="0.5" width="118" height="70.5"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XN3-fZ-b7b">
+                                                            <rect key="frame" x="0.0" y="71" width="118" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="Nug-bl-q4G"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.840087890625" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Nug-bl-q4G"/>
+                                                        <constraint firstAttribute="trailing" secondItem="IBR-1o-CaI" secondAttribute="trailing" id="C6L-7N-1wE"/>
+                                                        <constraint firstItem="IBR-1o-CaI" firstAttribute="leading" secondItem="KvN-Nj-XKM" secondAttribute="leading" id="F1V-OS-WAn"/>
+                                                        <constraint firstItem="IBR-1o-CaI" firstAttribute="top" secondItem="KvN-Nj-XKM" secondAttribute="top" id="KXb-dE-WQ0"/>
+                                                        <constraint firstItem="XN3-fZ-b7b" firstAttribute="top" secondItem="IBR-1o-CaI" secondAttribute="bottom" id="Qzy-6b-Agz"/>
+                                                        <constraint firstAttribute="bottom" secondItem="XN3-fZ-b7b" secondAttribute="bottom" id="aOj-vY-ZS1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="XN3-fZ-b7b" secondAttribute="trailing" id="kBS-1P-sHu"/>
+                                                        <constraint firstItem="XN3-fZ-b7b" firstAttribute="leading" secondItem="KvN-Nj-XKM" secondAttribute="leading" id="wDy-lN-NFt"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-1o-CaI">
-                                                    <rect key="frame" x="2" y="2" width="134" height="89"/>
-                                                </imageView>
+                                                </view>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.84686821459999995" green="0.81960784310000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="XN3-fZ-b7b" firstAttribute="width" secondItem="8Do-t8-qQw" secondAttribute="width" id="1Ha-g0-54V"/>
-                                            <constraint firstItem="IBR-1o-CaI" firstAttribute="top" secondItem="8Do-t8-qQw" secondAttribute="top" constant="2" id="GCS-bz-Tqj"/>
-                                            <constraint firstAttribute="trailing" secondItem="IBR-1o-CaI" secondAttribute="trailing" constant="2" id="K8u-SH-m4k"/>
-                                            <constraint firstAttribute="bottom" secondItem="XN3-fZ-b7b" secondAttribute="bottom" id="Mhr-hi-bAa"/>
-                                            <constraint firstItem="XN3-fZ-b7b" firstAttribute="top" secondItem="IBR-1o-CaI" secondAttribute="bottom" id="NQn-zn-vhk"/>
-                                            <constraint firstItem="IBR-1o-CaI" firstAttribute="centerX" secondItem="8Do-t8-qQw" secondAttribute="centerX" id="jKR-77-V13"/>
-                                            <constraint firstItem="IBR-1o-CaI" firstAttribute="leading" secondItem="8Do-t8-qQw" secondAttribute="leading" constant="2" id="llh-rA-Pdb"/>
-                                            <constraint firstItem="XN3-fZ-b7b" firstAttribute="centerX" secondItem="8Do-t8-qQw" secondAttribute="centerX" id="uMo-ZE-ji5"/>
+                                            <constraint firstItem="KvN-Nj-XKM" firstAttribute="leading" secondItem="8Do-t8-qQw" secondAttribute="leading" constant="10" id="Gd4-fs-GWG"/>
+                                            <constraint firstAttribute="trailing" secondItem="KvN-Nj-XKM" secondAttribute="trailing" constant="10" id="stB-jD-Rrf"/>
+                                            <constraint firstItem="KvN-Nj-XKM" firstAttribute="top" secondItem="8Do-t8-qQw" secondAttribute="top" constant="10" id="wr2-g7-eQP"/>
+                                            <constraint firstAttribute="bottom" secondItem="KvN-Nj-XKM" secondAttribute="bottom" constant="10" id="zzk-Hl-bd9"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="IBR-1o-CaI" id="zdk-ko-4zc"/>
                                             <outlet property="titleLabel" destination="XN3-fZ-b7b" id="Opg-n8-qJ0"/>
+                                            <outlet property="view" destination="KvN-Nj-XKM" id="PlI-It-dpr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

@@ -66,7 +66,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    var height: CGFloat = 20.0
+    var height: CGFloat = 40.0
     if let img = viewModel.getArticleViewModel(at: indexPath).image {
       let screenWidth = UIScreen.main.bounds.width
       let screenHeight = UIScreen.main.bounds.height
