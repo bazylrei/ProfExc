@@ -11,12 +11,15 @@ import UIKit
 class ArticleCollectionViewCell: UICollectionViewCell {
     
   @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var image: UIImageView!
+  @IBOutlet weak var imageView: UIImageView!
   
-  func setup(with viewModel: ArticleViewModel) {
+  func setup(with viewModel: ArticleViewModel, completion: @escaping (()->())) {
     titleLabel.text = viewModel.title
     if let urlString = viewModel.imageHref {
-      image.loadAsyncImage(urlString: urlString)
+    imageView.loadAsyncImage(urlString: urlString) { [weak self] loadedImage in
+      viewModel.image = loadedImage
+      completion()
+    }
     }
   }
 }

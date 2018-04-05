@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T47-gU-vFw">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T47-gU-vFw">
                                 <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YaL-b9-DkP">
@@ -44,7 +44,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-1o-CaI">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-1o-CaI">
                                                     <rect key="frame" x="2" y="2" width="134" height="88"/>
                                                 </imageView>
                                             </subviews>
@@ -61,7 +61,7 @@
                                             <constraint firstItem="XN3-fZ-b7b" firstAttribute="centerX" secondItem="8Do-t8-qQw" secondAttribute="centerX" id="uMo-ZE-ji5"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="IBR-1o-CaI" id="dIy-98-npl"/>
+                                            <outlet property="imageView" destination="IBR-1o-CaI" id="zdk-ko-4zc"/>
                                             <outlet property="titleLabel" destination="XN3-fZ-b7b" id="Opg-n8-qJ0"/>
                                         </connections>
                                     </collectionViewCell>

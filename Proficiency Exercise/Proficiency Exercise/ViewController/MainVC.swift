@@ -19,6 +19,7 @@ class MainVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
     collectionView.delegate = self
     collectionView.dataSource = self
     
@@ -41,7 +42,7 @@ class MainVC: UIViewController {
   }
 }
 
-extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
@@ -55,8 +56,16 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
       return UICollectionViewCell()
     }
     let articleViewModel = viewModel.getArticleViewModel(at: indexPath)
-    cell.setup(with: articleViewModel)
+    cell.setup(with: articleViewModel) { [weak self] in
+      self?.collectionView.collectionViewLayout.invalidateLayout()
+    }
     return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let img = viewModel.getArticleViewModel(at: indexPath).image
+    let size = CGSize(width: self.collectionView.frame.width, height: img.size.height + 20)
+    return size
   }
   
 }

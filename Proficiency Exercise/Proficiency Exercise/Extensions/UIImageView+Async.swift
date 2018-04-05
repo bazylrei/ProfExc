@@ -9,15 +9,16 @@
 import UIKit
 
 extension UIImageView {
-  public func loadAsyncImage(urlString: String) {
+  public func loadAsyncImage(urlString: String, completion: @escaping ((UIImage)->())) {
     let session = URLSession(configuration: .default)
     let task = session.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) in
       if error != nil {
         print(error)
       } else {
         DispatchQueue.main.async(execute: { () -> Void in
-          let image = UIImage(data: data!)
+          guard let image = UIImage(data: data!) else { return }
           self.image = image
+          completion(image)
         })
       }
     })

@@ -12,6 +12,7 @@ class ArticleViewModel: NSObject {
   let title: String
   let desc: String
   let imageHref: String?
+  var image = UIImage()
   
   init(article: Article) {
     self.title = article.title ?? ""
