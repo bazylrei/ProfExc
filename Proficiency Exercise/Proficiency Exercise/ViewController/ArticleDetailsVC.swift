@@ -10,11 +10,22 @@ import UIKit
 
 class ArticleDetailsVC: UIViewController {
   
+  @IBOutlet weak var contentView: UIView!
+  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var descriptionTextView: UITextView!
+  
   var viewModel: ArticleViewModel?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     title = viewModel?.title
+    if let image = viewModel?.image {
+      imageView.image = image
+    } else {
+      guard let url = viewModel?.imageHref else { return }
+      imageView.loadAsyncImage(urlString: url) {_ in }
+    }
+//    descriptionTextView.text = viewModel?.desc
   }
   
 }
