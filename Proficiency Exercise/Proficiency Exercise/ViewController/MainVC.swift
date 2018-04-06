@@ -9,6 +9,9 @@
 import UIKit
 
 class MainVC: UIViewController {
+
+  let kDetailsSegue = "DetailsSegue"
+  let kArticleCell = "ArticleCell"
   
   @IBOutlet weak var collectionView: UICollectionView!
 
@@ -26,7 +29,7 @@ class MainVC: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "DetailsSegue" {
+    if segue.identifier == kDetailsSegue {
       if let vc = segue.destination as? ArticleDetailsVC,
         let viewModel = sender as? ArticleViewModel {
         vc.viewModel = viewModel
@@ -43,16 +46,7 @@ class MainVC: UIViewController {
   }
   
   func setupViewModel() {
-    viewModel.presentErrorAlertClosure = {[weak self] error in
-      DispatchQueue.main.async {
-        let alert = UIAlertController(title: "Alert", message: error, preferredStyle: .alert)
-        alert.addAction( UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-        self?.present(alert, animated: true, completion: nil)
-      }
-    }
-    viewModel.updateDownloadStatusClosure = {
-      
-    }
+    
     viewModel.reloadCollectionViewClosure = {
       DispatchQueue.main.async {
         self.collectionView.reloadData()
@@ -78,7 +72,8 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArticleCell", for: indexPath) as? ArticleCollectionViewCell else {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kArticleCell,
+                                                        for: indexPath) as? ArticleCollectionViewCell else {
       return UICollectionViewCell()
     }
     let articleViewModel = viewModel.getArticleViewModel(at: indexPath)
@@ -102,7 +97,6 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     collectionView.deselectItem(at: indexPath, animated: true)
     let articleViewModel = viewModel.getArticleViewModel(at: indexPath)
-    performSegue(withIdentifier: "DetailsSegue", sender: articleViewModel)
+    performSegue(withIdentifier: kDetailsSegue, sender: articleViewModel)
   }
-  
 }

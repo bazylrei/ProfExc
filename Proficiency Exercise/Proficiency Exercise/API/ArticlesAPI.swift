@@ -22,8 +22,8 @@ class ArticlesAPI: NSObject, ArticlesAPIType {
   func downloadArticles(completion: @escaping (([Article]) -> Void)) {
     networkClient.fetchArticles() { [weak self] json in
       guard let json = json else { return }
-      let articles = self?.parser.parseArticleData(json: json)
-      completion(articles!)
+      guard let articles = self?.parser.parseArticleData(json: json) else { return }
+      completion(articles)
     }
   }
 }

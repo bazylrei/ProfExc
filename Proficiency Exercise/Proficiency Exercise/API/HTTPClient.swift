@@ -16,7 +16,7 @@ protocol ArticleLoaderType {
 class HTTPClient: NSObject, ArticleLoaderType {
   
   func fetchArticles(completion: @escaping ((JSON?) -> Void)) {
-    let urlPath: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"//"https://api.myjson.com/bins/1e3977"
+    let urlPath: String = Constants.URL
     guard let url = URL(string: urlPath) else { return }
     var request = URLRequest(url: url)
     request.httpMethod = "GET"

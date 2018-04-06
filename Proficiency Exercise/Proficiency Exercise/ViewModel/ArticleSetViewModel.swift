@@ -14,8 +14,6 @@ class ArticleSetViewModel: NSObject {
   private let articles: [Article] = [Article]()
 
   var reloadCollectionViewClosure: (()->())?
-  var updateDownloadStatusClosure: (()->())?
-  var presentErrorAlertClosure: ((String)->())?
   
   private var articleViewModels: [ArticleViewModel] = [ArticleViewModel]() {
     didSet {
@@ -24,19 +22,6 @@ class ArticleSetViewModel: NSObject {
   }
   
   var selectedArticle: Article?
-  
-  var isDownloading: Bool = false {
-    didSet {
-      updateDownloadStatusClosure?()
-    }
-  }
-  
-  var errorMessage: String? {
-    didSet {
-      guard let error = errorMessage else { return }
-      presentErrorAlertClosure?(error)
-    }
-  }
   
   var cellCount: Int {
     return articleViewModels.count
