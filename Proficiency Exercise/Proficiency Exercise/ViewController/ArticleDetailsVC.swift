@@ -10,7 +10,6 @@ import UIKit
 
 class ArticleDetailsVC: UIViewController {
   
-  @IBOutlet weak var contentView: UIView!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var descriptionTextView: UITextView!
   
@@ -25,7 +24,7 @@ class ArticleDetailsVC: UIViewController {
       guard let url = viewModel?.imageHref else { return }
       imageView.loadAsyncImage(urlString: url) {_ in }
     }
-//    descriptionTextView.text = viewModel?.desc
+    descriptionTextView.text = viewModel?.desc
   }
   
 }
