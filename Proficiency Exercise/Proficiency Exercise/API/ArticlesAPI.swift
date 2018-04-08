@@ -16,10 +16,10 @@ protocol ArticlesAPIType {
 
 class ArticlesAPI: NSObject, ArticlesAPIType {
   
-  let parser: ParserType = JSONParser()
+  internal let parser: ParserType = JSONParser()
   let networkClient: ArticleLoaderType = HTTPClient()
   
-  func downloadArticles(completion: @escaping (([Article]) -> Void)) {
+  internal func downloadArticles(completion: @escaping (([Article]) -> Void)) {
     networkClient.fetchArticles() { [weak self] json in
       guard let json = json else { return }
       guard let articles = self?.parser.parseArticleData(json: json) else { return }

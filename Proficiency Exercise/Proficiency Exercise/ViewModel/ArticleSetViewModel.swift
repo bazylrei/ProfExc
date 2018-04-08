@@ -10,20 +10,20 @@ import UIKit
 
 class ArticleSetViewModel: NSObject {
   
-  private let articlesAPI: ArticlesAPIType
-  private let articles: [Article] = [Article]()
+  fileprivate let articlesAPI: ArticlesAPIType
+  fileprivate let articles: [Article] = [Article]()
 
   var reloadCollectionViewClosure: (()->())?
   
-  private var articleViewModels: [ArticleViewModel] = [ArticleViewModel]() {
+  fileprivate var articleViewModels: [ArticleViewModel] = [ArticleViewModel]() {
     didSet {
       self.reloadCollectionViewClosure?()
     }
   }
   
-  var selectedArticle: Article?
+  fileprivate var selectedArticle: Article?
   
-  var cellCount: Int {
+  public var cellCount: Int {
     return articleViewModels.count
   }
   
@@ -31,7 +31,7 @@ class ArticleSetViewModel: NSObject {
     self.articlesAPI = api
   }
   
-  func fetch() {
+  public func fetch() {
     articlesAPI.downloadArticles() {[weak self] articles in
       var viewModels = [ArticleViewModel]()
       articles.forEach { article in
@@ -42,11 +42,11 @@ class ArticleSetViewModel: NSObject {
     }
   }
   
-  func getArticleViewModel(at indexPath: IndexPath) -> ArticleViewModel {
+  public func getArticleViewModel(at indexPath: IndexPath) -> ArticleViewModel {
     return articleViewModels[indexPath.row]
   }
   
-  func createArticleViewModel(article: Article) -> ArticleViewModel {
+  fileprivate func createArticleViewModel(article: Article) -> ArticleViewModel {
     let viewModel = ArticleViewModel(article: article)
     return viewModel
   }

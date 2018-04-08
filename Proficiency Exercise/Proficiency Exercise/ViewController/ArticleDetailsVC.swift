@@ -27,4 +27,16 @@ class ArticleDetailsVC: UIViewController {
     descriptionTextView.text = viewModel?.desc
   }
   
+  override public var traitCollection: UITraitCollection {
+    if UI_USER_INTERFACE_IDIOM() == .pad &&
+      view.bounds.width > view.bounds.height {
+      
+      let collections = [UITraitCollection(horizontalSizeClass: .regular),
+                         UITraitCollection(verticalSizeClass: .compact)]
+      return UITraitCollection(traitsFrom: collections)
+      
+    }
+    
+    return super.traitCollection
+  }
 }

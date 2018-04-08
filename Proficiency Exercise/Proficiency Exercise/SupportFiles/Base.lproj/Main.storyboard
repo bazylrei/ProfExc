@@ -122,7 +122,7 @@
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BX0-LH-eWd">
                                         <rect key="frame" x="121.6666666666666" y="0.0" width="284.33333333333326" height="343"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -183,6 +183,8 @@
                                 <exclude reference="eRy-Eg-Twl"/>
                                 <exclude reference="lb3-Lb-tyV"/>
                                 <exclude reference="uqP-sN-YLt"/>
+                                <exclude reference="7he-a9-mXx"/>
+                                <exclude reference="KuH-sh-QdK"/>
                                 <exclude reference="PL0-4M-dUz"/>
                                 <exclude reference="ZZ7-Kq-dXl"/>
                                 <exclude reference="eMe-FA-jwK"/>
@@ -190,8 +192,6 @@
                                 <exclude reference="pBj-7U-1Lo"/>
                                 <exclude reference="pvd-Hl-ZNQ"/>
                                 <exclude reference="x4m-81-udY"/>
-                                <exclude reference="7he-a9-mXx"/>
-                                <exclude reference="KuH-sh-QdK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -202,11 +202,11 @@
                                 <include reference="eRy-Eg-Twl"/>
                                 <include reference="lb3-Lb-tyV"/>
                                 <exclude reference="uqP-sN-YLt"/>
+                                <include reference="7he-a9-mXx"/>
                                 <include reference="ZZ7-Kq-dXl"/>
                                 <include reference="fXa-m4-FSp"/>
                                 <include reference="pvd-Hl-ZNQ"/>
                                 <include reference="x4m-81-udY"/>
-                                <include reference="7he-a9-mXx"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -218,11 +218,11 @@
                                 <exclude reference="eRy-Eg-Twl"/>
                                 <exclude reference="lb3-Lb-tyV"/>
                                 <include reference="uqP-sN-YLt"/>
+                                <exclude reference="7he-a9-mXx"/>
+                                <include reference="KuH-sh-QdK"/>
                                 <include reference="PL0-4M-dUz"/>
                                 <include reference="eMe-FA-jwK"/>
                                 <include reference="pBj-7U-1Lo"/>
-                                <exclude reference="7he-a9-mXx"/>
-                                <include reference="KuH-sh-QdK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">

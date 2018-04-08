@@ -10,11 +10,11 @@ import UIKit
 
 class ArticleCollectionViewCell: UICollectionViewCell {
   
-  @IBOutlet weak var view: UIView!
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet fileprivate weak var view: UIView!
+  @IBOutlet fileprivate weak var titleLabel: UILabel!
+  @IBOutlet fileprivate weak var imageView: UIImageView!
   
-  func setup(with viewModel: ArticleViewModel, completion: @escaping (()->())) {
+  public func setup(with viewModel: ArticleViewModel, completion: @escaping (()->())) {
     view.layer.cornerRadius = 8.0
     titleLabel.text = viewModel.title
     viewModel.image = viewModel.image ?? #imageLiteral(resourceName: "Default")

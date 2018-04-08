@@ -10,14 +10,14 @@ import UIKit
 
 class MainVC: UIViewController {
 
-  let kDetailsSegue = "DetailsSegue"
-  let kArticleCell = "ArticleCell"
+  fileprivate let kDetailsSegue = "DetailsSegue"
+  fileprivate let kArticleCell = "ArticleCell"
   
-  @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet fileprivate weak var collectionView: UICollectionView!
 
-  let refreshController = UIRefreshControl()
+  fileprivate let refreshController = UIRefreshControl()
   
-  lazy var viewModel: ArticleSetViewModel = {
+  lazy fileprivate var viewModel: ArticleSetViewModel = {
     return ArticleSetViewModel(api: ArticlesAPI())
   }()
   
@@ -37,7 +37,7 @@ class MainVC: UIViewController {
     }
   }
   
-  func setupCollectionView() {
+  fileprivate func setupCollectionView() {
     collectionView.delegate = self
     collectionView.dataSource = self
     refreshController.addTarget(self, action: #selector(refreshData), for: .valueChanged)
@@ -45,7 +45,7 @@ class MainVC: UIViewController {
     
   }
   
-  func setupViewModel() {
+  fileprivate func setupViewModel() {
     
     viewModel.reloadCollectionViewClosure = {
       DispatchQueue.main.async {
@@ -56,7 +56,7 @@ class MainVC: UIViewController {
     refreshData()
   }
   
-  @objc func refreshData() {
+  @objc fileprivate func refreshData() {
     refreshController.beginRefreshing()
     viewModel.fetch()
   }

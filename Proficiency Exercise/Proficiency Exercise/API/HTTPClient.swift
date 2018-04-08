@@ -15,7 +15,7 @@ protocol ArticleLoaderType {
 
 class HTTPClient: NSObject, ArticleLoaderType {
   
-  func fetchArticles(completion: @escaping ((JSON?) -> Void)) {
+  internal func fetchArticles(completion: @escaping ((JSON?) -> Void)) {
     let urlPath: String = Constants.URL
     guard let url = URL(string: urlPath) else { return }
     var request = URLRequest(url: url)
